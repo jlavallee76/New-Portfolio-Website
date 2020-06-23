@@ -1,0 +1,223 @@
+/*************************************************
+- Name: Josh Lavallee                            *
+- Date Created: 06/14/2020                       *
+- Date Modified: 06/22/2020                      *
+- Description: Main styles for new portfolio     *
+*************************************************/
+
+/* fonts
+
+  font-family: birch-std,serif;
+  font-weight: 400;
+  font-style: normal;
+  
+*/
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Custom Properties */
+
+:root{
+  --ff-primary: 'Source Sans Pro', sans-serif;
+  --ff-secondary: 'Source Code Pro', monospace;
+
+  --fw-reg: 300;
+  --fw-bold: 900;
+
+  --clr-light: #fff;
+  --clr-dark: #303030;
+  --clr-accent: #16e0db;
+
+  --fs-h1: 3rem;
+  --fs-h2: 2.25rem;
+  --fs-h3: 1.25rem;
+  --fs-body: 1rem;
+
+  --bs: 0.25em 0.25em 0.75em rbgb(0,0,0,.25),
+        0.125em 0.125em 0.25em rgba(0,0,0,.15);
+}
+
+
+@media (min-width: 800px){
+  
+  :root{
+    --fs-h1: 4.5rem;
+    --fs-h2: 3.75rem;
+    --fs-h3: 1.5rem;
+    --fs-body: 1.125rem;
+  }
+}
+
+
+/* General Styles */
+
+body {
+  background: var(--clr-light);
+  color: var(--clr-dark);
+  margin: 0px;
+  font-family: var(--ff-primary);
+  font-size: var(--fs-body);
+  line-height: 1.6;
+}
+
+section{
+  padding: 5em 2em;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+strong{
+  font-weight: var(--fw-bold);
+}
+
+:focus{
+  outline: 3px solid var(--clr-accent);
+}
+
+/* Buttons */
+
+.btn {
+  display: inline-block;
+  padding: .5em 1.5em;
+  background: var(--clr-accent);
+  color: var(--clr-dark);
+  text-decoration: none;
+  cursor: pointer;
+  font-size: .8rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: var(--fw-bold);
+  transition: transform 200ms ease-in-out;
+}
+
+.btn:hover{
+  transform: scale(1.1);
+}
+
+
+/* Typography */
+
+h1,h2,h3{
+  line-height: 1;
+  margin: 0px;
+}
+
+h1{
+  font-size: var(--fs-h1);
+}
+
+h2{
+  font-size: var(--fs-h2);
+}
+
+
+h3{
+  font-size: var(--fs-h3);
+}
+
+.section-title{
+  margin-bottom: .23em;
+}
+
+.intro-title{
+  font-weight: var(--fw-reg);
+}
+
+.intro-title strong{
+  display: block;
+}
+
+.section-subtitle{
+  margin: 0px;
+  font-size: var(--fs-h3);
+}
+
+.intro-subtitle, .about-subtitle{
+  background-color: var(--clr-accent);
+  font-family: var(--ff-secondary);
+  margin-bottom: 1em;
+  padding: .5em 1em;
+}
+
+/* Navigation */
+
+nav{
+  display: none;
+}
+
+/* Intro Section */
+
+.intro{
+  position: relative;
+}
+
+
+@media (min-width: 600px){
+  .intro{
+    display: grid;
+    grid-column-gap: 1em;
+    width: min-content;
+    margin: 0px auto;
+    grid-template-areas:
+      "img title"
+      "img subtitle";
+    grid-template-columns: min-content max-content;
+  }
+
+  .profile-picture{
+    grid-area: img;
+    min-width: 275px;
+    min-height: 275px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .intro-subtitle{
+    align-self: start;
+    grid-column: -1/1;
+    grid-row: 2;
+    text-align: right;
+    position: relative;
+    left: -1.5em;
+    width: calc(100% + 1.5em);
+  }
+}
+
+/* Skills */
+
+.my-skills{
+  background-color: var(--clr-dark);
+  color: var(--clr-light);
+  text-align: center;
+}
+
+.skills-title{
+  color: var(--clr-accent);
+  position: relative;
+}
+
+.skills-title::after{
+  content: '';
+  display: block;
+  width: 15%;
+  height: 1px;
+  margin: 0.5em auto 1em;
+  background: currentColor;
+  opacity: .50;
+}
+
+@media (min-width: 800px){
+  .skills{
+    display: flex;
+    max-width: 1000px;
+    margin: 0px auto;
+  }
+
+  .skill + .skill{
+    margin-left: 2em;
+  }
+}
